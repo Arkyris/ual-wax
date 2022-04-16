@@ -31,11 +31,15 @@ class WaxUser extends universal_authenticator_library_1.User {
                 this.rpc = this.wax.api.rpc;
             }
             const completedTransaction = await this.wax.api.transact(transaction, options);
-            notifySuccess(completedTransaction);
+            notifySuccess(completedTransaction.transaction_id, completedTransaction.processed.receipt.status);
             return this.returnEosjsTransaction(options.broadcast !== false, completedTransaction);
         }
         catch (e) {
-            notifyError(e);
+            if(e.message){
+                notifyError(e.message);
+            } else {
+                notifyError(e);
+            }
             throw new UALWaxError_1.UALWaxError(e.message ? e.message : 'Unable to sign transaction', universal_authenticator_library_1.UALErrorType.Signing, e);
         }
     }

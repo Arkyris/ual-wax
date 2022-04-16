@@ -1,6 +1,6 @@
 {
   "name": "@arkyris/ual-wax",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arkyris/ual-anchor"
+    "url": "https://github.com/arkyris/ual-wax"
   }
 }
